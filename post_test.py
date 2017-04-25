@@ -11,4 +11,11 @@ data = data.encode('utf-8')
 
 res =urllib.request.urlopen(req,data)
 
-print (res.read())
+fPath="./post_output.txt"
+
+outFile=open(fPath,"w",encoding="utf-8")
+
+try:
+    outFile.write(res.read().decode())
+finally:
+    outFile.close()
