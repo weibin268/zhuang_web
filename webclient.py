@@ -8,16 +8,16 @@ class WebClinet:
     def __init__(self,url):
         WebClinet.url=url
         
-    def post(self,action,objData):
+    def post(self,url_suffix,obj_data):
         
-        req = urllib.request.Request(WebClinet.url+action)
+        req = urllib.request.Request(WebClinet.url+url_suffix)
         req.add_header(
             "Content-Type", "application/x-www-form-urlencoded;charset=utf-8")
 
-        data = urllib.parse.urlencode(objData)
-        data = data.encode('utf-8')
+        form_data = urllib.parse.urlencode(obj_data)
+        form_data = form_data.encode('utf-8')
 
-        res = urllib.request.urlopen(req, data)
+        res = urllib.request.urlopen(req, form_data)
 
         return res.read().decode()
 
