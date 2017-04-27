@@ -1,14 +1,16 @@
 from webclient import WebClinet
 
-data={"args": "{UserId:'bingosoft2',BelongDate:'2017-04-23'}"}
+import json
+
+args=json.dumps({'UserId':'bingosoft2','Index':-2})
+data={"args": args}
 baseUrl='http://localhost:8081/Ashx/BingoTaskHandler.ashx?action='
-action='DailyTask-GetTaskByDate'
+action='Date-GetWeekFirstAndLastDates'
 wc=WebClinet(baseUrl)
-json=wc.post(action,data)
+result=wc.post(action,data)
 
 
 with open('./post_output.txt','w',encoding='utf-8') as file:
-    file.write(json)
+    file.write(result)
 
-print(json)
-
+print(result)
