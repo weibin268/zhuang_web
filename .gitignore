@@ -1,4 +1,6 @@
-post_output.txt
 /.vscode/**
 /.idea/**
 /__pycache__/**
+
+post_output.txt
+.idea/
